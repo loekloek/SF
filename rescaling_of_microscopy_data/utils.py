@@ -6,7 +6,7 @@ from tqdm.notebook import tqdm
 from scipy.optimize import curve_fit
 import tifffile
 import matplotlib.pyplot as plt
-import psf_extra as psfe
+#import psf_extra as psfe
 
 __all__ = ['plot_overlay_panels',
             'plot_int_histograms',
@@ -27,7 +27,7 @@ __all__ = ['plot_overlay_panels',
            'scaling_factor_from_nfp',
            'load_stack']
 
-fire = psfe.get_Daans_special_cmap()
+#fire = psfe.get_Daans_special_cmap()
 
 def plot_overlay_panels(theories, stack, stack_rescaled,gt_stack, ps_xy, ps_z, ps_xy_gt, ps_z_gt, rescaled_ps_z, y_min=False, y_max=False, x_min=False, x_max=False, direction = 'horizontal' ): 
     colormaps = ['gray','Purples']
@@ -147,7 +147,7 @@ def plot_stacks_MIPs(stack_one, stack_two, stack_names, planes, ps_xy_one, ps_z_
                 if i==1: extent = [0, shape_two[2]*ps_xy_two, 0, shape_two[0]*ps_z_two]
                 else: extent = [0, shape_one[2]*ps_xy_one, 0, shape_one[0]*ps_z_one]
 
-            axs[j,i].imshow(np.max([stack_one,stack_two][i], axis=mip_axis),cmap=fire,extent=extent)
+            axs[j,i].imshow(np.max([stack_one,stack_two][i], axis=mip_axis),cmap='hot',extent=extent)
             axs[j,i].set_title(stack_names[i])
             axs[j,i].set_xlabel(planes[j][:1]+r' ($\mu$m)')
             axs[j,i].set_ylabel(planes[j][1:]+r' ($\mu$m)')
